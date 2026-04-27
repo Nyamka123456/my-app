@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import data from "../utils/student.json";
+import data from "../../utils/teacher.json";
 
 export default function Header() {
   const [search, setSearch] = useState("");
 
-  const filteredData = data.filter((student) =>
-    student.firstname.toLowerCase().includes(search.toLowerCase())
+  const filteredData = data.filter((name) =>
+    name.name.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -26,10 +26,10 @@ export default function Header() {
         />
 
         <nav className="flex gap-6">
-          <a href="/" className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">
+          <a href="/" className="text-gray-500 hover:text-gray-900 transition">
             Students
           </a>
-          <a href="/teacher" className="text-gray-500 hover:text-gray-900 transition">
+          <a href="/teacher"  className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" >
             Teachers
           </a>
           <a href="/yes" className="text-gray-500 hover:text-gray-900 transition">
@@ -44,59 +44,35 @@ export default function Header() {
             No data
           </div>
         ) : (
-          filteredData.map((student) => (
+          filteredData.map((name) => (
             <div
-              key={student.id}
+              key={name.id}
               className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
             >
               <div className="flex items-center gap-4 mb-3">
                 <img
-                  src={student.image}
+                  src={name.image}
                   alt=""
                   className="w-14 h-14 rounded-full object-cover border-2 border-gray-300"
                 />
                 <div>
                   <h2 className="text-lg font-semibold text-gray-900">
-                    {student.lastname} {student.firstname}
+                    {name.lastname}. {name.name}
                   </h2>
                   <p className="text-gray-500 text-sm">
-                    {student.firstname}@gmail.com
+                    {name.name}@nhs.edu.mn
                   </p>
                 </div>
               </div>
 
               <div className="text-gray-600 text-sm mb-3">
-                Height: {student.height} cm
+                Subject: {name.subject}
                 <div className="flex gap-2 items-center">
                   Country:
                   <img
-                    src={student.country}
+                    src={name.country}
                     className="w-5 h-4 object-cover rounded-sm border border-gray-300"
                   />
-                </div>
-              </div>
-
-              <div>
-                <p className="text-sm mb-2 font-medium text-gray-800">
-                  Items:
-                </p>
-                <div className="flex flex-col gap-2">
-                  {student.items.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center gap-3 bg-gray-50 p-2 rounded-lg hover:bg-gray-100 transition border border-gray-100"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-10 h-10 rounded-md object-scale-down bg-white"
-                        
-                      />
-                      <span className="text-sm text-gray-800">
-                        {item.name}
-                      </span>
-                    </div>
-                  ))}
                 </div>
               </div>
             </div>
