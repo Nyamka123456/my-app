@@ -17,10 +17,10 @@ const filteredTeachers = data2.filter((teacher) =>
 
    return (
      <div className="bg-gray-100 min-h-screen">
-       <header className="w-full bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
-         <h1 className="text-xl font-bold text-gray-900">
+       <header className="w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
+         <a href="/" className="text-xl font-bold text-gray-900">
            School System
-         </h1>
+         </a>
  
          <input
            type="text"
@@ -31,7 +31,7 @@ const filteredTeachers = data2.filter((teacher) =>
          />
  
          <nav className="flex gap-6">
-           <a href="/"  className="text-gray-500 hover:text-gray-900 transition">
+           <a href="/student"  className="text-gray-500 hover:text-gray-900 transition">
              Students
            </a>
            <a href="/teacher" className="text-gray-500 hover:text-gray-900 transition">
@@ -43,7 +43,7 @@ const filteredTeachers = data2.filter((teacher) =>
          </nav>
        </header>
  
-       <div className="grid gap-6 px-6">
+       <div className="grid gap-6 px-6 mb-20">
          {filteredStudents.length === 0 && filteredTeachers.length === 0 ? (
            <div className="text-center text-gray-500 mt-6 col-span-full">
              No data
@@ -119,7 +119,7 @@ const filteredTeachers = data2.filter((teacher) =>
             />
             <div>
               <h2 className="text-lg font-semibold text-gray-900">
-                {teacher.lastname} {teacher.name}
+                {teacher.lastname}. {teacher.name}
               </h2>
               <p className="text-gray-500 text-sm">
                 {teacher.name}@nhs.edu.mn

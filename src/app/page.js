@@ -12,21 +12,12 @@ export default function Header() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header className="w-full bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
-        <h1 className="text-xl font-bold text-gray-900">
+      <header className="w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
+        <a href="/" className="text-xl font-bold text-blue-600 border-b-2 border-blue-600">
           School System
-        </h1>
-
-        <input
-          type="text"
-          className="border border-gray-300 bg-white rounded-xl px-3 py-1 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          placeholder="Search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-
+        </a>
         <nav className="flex gap-6">
-          <a href="/" className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">
+          <a href="/student" className="text-gray-500 hover:text-gray-900 transition">
             Students
           </a>
           <a href="/teacher" className="text-gray-500 hover:text-gray-900 transition">
@@ -37,71 +28,62 @@ export default function Header() {
           </a>
         </nav>
       </header>
-
-      <div className="grid gap-6 px-6">
-        {filteredData.length === 0 ? (
-          <div className="text-center text-gray-500 mt-6 col-span-full">
-            No data
+      <div className="flex gap-6 px-12 text-blac justify-center items-center text-black flex-row">
+        <div className="h-125 w-100 flex flex-col items-center gap-6">
+          <div className=" bg-white w-100 p-2 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md flex flex-row">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXDBHX61LFhknME5hWXWNdDWYVI3cwH5m-iw&s" className="rounded-full h-35 w-35"/>
+            <div className="w-full h-full flex justify-center flex-col ml-4">
+              <h1 className="font-bold text-2xl">
+                Nyamragchaa
+              </h1>
+              <h2>
+                Birthday: 2009/09/20
+              </h2>
+              <h2>
+                Gender: Male
+              </h2>
+            </div>
           </div>
-        ) : (
-          filteredData.map((student) => (
-            <div
-              key={student.id}
-              className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <img
-                  src={student.image}
-                  alt=""
-                  className="w-14 h-14 rounded-full object-cover border-2 border-gray-300"
-                />
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-900">
-                    {student.lastname} {student.firstname}
-                  </h2>
-                  <p className="text-gray-500 text-sm">
-                    {student.firstname}@gmail.com
-                  </p>
+          <div className="flex justify-end w-full">
+            <div className="flex flex-col gap-4 w-72">
+              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-md flex items-center gap-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/500px-ChatGPT-Logo.svg.png" className="rounded-full h-16 w-16 object-cover" />
+                <div className="flex flex-col">
+                  <h1 className="font-bold text-lg">ChatGPT</h1>
+                  <h2 className="text-sm text-gray-500">Used for coloring and problem fixing</h2>
                 </div>
               </div>
-
-              <div className="text-gray-600 text-sm mb-3">
-                Height: {student.height} cm
-                <div className="flex gap-2 items-center">
-                  Country:
-                  <img
-                    src={student.country}
-                    className="w-5 h-4 object-cover rounded-sm border border-gray-300"
-                  />
+              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-md flex items-center gap-3">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.png" className="rounded-full h-16 w-16 object-cover" />
+                <div className="flex flex-col">
+                  <h1 className="font-bold text-lg">Next.js</h1>
+                  <h2 className="text-sm text-gray-500">Used for framework</h2>
                 </div>
               </div>
-
-              <div>
-                <p className="text-sm mb-2 font-medium text-gray-800">
-                  Items:
-                </p>
-                <div className="flex flex-col gap-2">
-                  {student.items.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-center gap-3 bg-gray-50 p-2 rounded-lg hover:bg-gray-100 transition border border-gray-100"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-10 h-10 rounded-md object-scale-down bg-white"
-                        
-                      />
-                      <span className="text-sm text-gray-800">
-                        {item.name}
-                      </span>
+              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-md flex items-center gap-3">
+                    <img src="https://img.icons8.com/ios_filled/1200/vercel.jpg" className="rounded-full h-16 w-16 object-cover" />
+                    <div className="flex flex-col">
+                      <h1 className="font-bold text-lg">Vercel</h1>
+                      <h2 className="text-sm text-gray-500">Used for launching the website</h2>
                     </div>
-                  ))}
-                </div>
               </div>
             </div>
-          ))
-        )}
+          </div>
+        </div>
+      <div className="h-125 w-100 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+        <h1 className="font-bold text-2xl">About this Project:</h1>
+        <p className="text-sm leading-6">
+          Hello, my name is Nyamragchaa. I compiled a list of my classmates’ and
+          teachers’ names along with items that represent them or that they
+          commonly have on their person.
+        </p>
+        <p className="text-sm leading-6">
+          I used Next.js with Tailwind CSS and deployed the project on Vercel.
+          The information is stored using JSON files. Each profile picture and
+          item was personally chosen based on interests, memories, and
+          personality.
+        </p>
+      </div>
       </div>
     </div>
   );

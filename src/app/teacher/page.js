@@ -12,10 +12,10 @@ export default function Header() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header className="w-full bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
-        <h1 className="text-xl font-bold text-gray-900">
+      <header className="w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
+        <a href="/" className="text-xl font-bold text-gray-900">
           School System
-        </h1>
+        </a>
 
         <input
           type="text"
@@ -26,7 +26,7 @@ export default function Header() {
         />
 
         <nav className="flex gap-6">
-          <a href="/" className="text-gray-500 hover:text-gray-900 transition">
+          <a href="/student" className="text-gray-500 hover:text-gray-900 transition">
             Students
           </a>
           <a href="/teacher"  className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1" >
@@ -37,47 +37,48 @@ export default function Header() {
           </a>
         </nav>
       </header>
-
-      <div className="grid gap-6 px-6">
-        {filteredData.length === 0 ? (
-          <div className="text-center text-gray-500 mt-6 col-span-full">
-            No data
-          </div>
-        ) : (
-          filteredData.map((name) => (
-            <div
-              key={name.id}
-              className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
-            >
-              <div className="flex items-center gap-4 mb-3">
-                <img
-                  src={name.image}
-                  alt=""
-                  className="w-14 h-14 rounded-full object-cover border-2 border-gray-300"
-                />
-                <div>
-                  <h2 className="text-lg font-semibold text-gray-900">
-                    {name.lastname}. {name.name}
-                  </h2>
-                  <p className="text-gray-500 text-sm">
-                    {name.name}@nhs.edu.mn
-                  </p>
-                </div>
-              </div>
-
-              <div className="text-gray-600 text-sm mb-3">
-                Subject: {name.subject}
-                <div className="flex gap-2 items-center">
-                  Country:
-                  <img
-                    src={name.country}
-                    className="w-5 h-4 object-cover rounded-sm border border-gray-300"
-                  />
-                </div>
-              </div>
+    <div className="px-6 gap-6 mb-20">
+        <div className="grid gap-6 px-6">
+          {filteredData.length === 0 ? (
+            <div className="text-center text-gray-500 mt-6 col-span-full">
+              No data
             </div>
-          ))
-        )}
+          ) : (
+            filteredData.map((name) => (
+              <div
+                key={name.id}
+                className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
+              >
+                <div className="flex items-center gap-4 mb-3">
+                  <img
+                    src={name.image}
+                    alt=""
+                    className="w-14 h-14 rounded-full object-cover border-2 border-gray-300"
+                  />
+                  <div>
+                    <h2 className="text-lg font-semibold text-gray-900">
+                      {name.lastname}. {name.name}
+                    </h2>
+                    <p className="text-gray-500 text-sm">
+                      {name.name}@nhs.edu.mn
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-gray-600 text-sm mb-3">
+                  Subject: {name.subject}
+                  <div className="flex gap-2 items-center">
+                    Country:
+                    <img
+                      src={name.country}
+                      className="w-5 h-4 object-cover rounded-sm border border-gray-300"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );
