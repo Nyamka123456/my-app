@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header className="w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
+      <header className="sticky top-0 w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
         <a href="/" className="text-xl font-bold text-blue-600 border-b-2 border-blue-600">
           School System
         </a>
@@ -30,7 +30,7 @@ export default function Header() {
       </header>
       <div className="flex gap-6 px-12 text-blac justify-center items-center text-black flex-row">
         <div className="h-125 w-100 flex flex-col items-center gap-6">
-          <div className=" bg-white w-100 p-2 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md flex flex-row">
+          <div className=" bg-white w-100 p-2 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition flex flex-row">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXDBHX61LFhknME5hWXWNdDWYVI3cwH5m-iw&s" className="rounded-full h-35 w-35"/>
             <div className="w-full h-full flex justify-center flex-col ml-4">
               <h1 className="font-bold text-2xl">
@@ -46,21 +46,21 @@ export default function Header() {
           </div>
           <div className="flex justify-end w-full">
             <div className="flex flex-col gap-4 w-72">
-              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-md flex items-center gap-3">
+              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-lg transition flex items-center gap-3">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/500px-ChatGPT-Logo.svg.png" className="rounded-full h-16 w-16 object-cover" />
                 <div className="flex flex-col">
                   <h1 className="font-bold text-lg">ChatGPT</h1>
                   <h2 className="text-sm text-gray-500">Used for coloring and problem fixing</h2>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-md flex items-center gap-3">
+              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-lg transition flex items-center gap-3">
                 <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.png" className="rounded-full h-16 w-16 object-cover" />
                 <div className="flex flex-col">
                   <h1 className="font-bold text-lg">Next.js</h1>
                   <h2 className="text-sm text-gray-500">Used for framework</h2>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-md flex items-center gap-3">
+              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-lg transition flex items-center gap-3">
                     <img src="https://img.icons8.com/ios_filled/1200/vercel.jpg" className="rounded-full h-16 w-16 object-cover" />
                     <div className="flex flex-col">
                       <h1 className="font-bold text-lg">Vercel</h1>
@@ -70,7 +70,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      <div className="h-125 w-100 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition">
+      <div className="h-125 w-100 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition transition">
         <h1 className="font-bold text-2xl">About this Project:</h1>
         <p className="text-sm leading-6">
           Hello, my name is Nyamragchaa. I compiled a list of my classmates’ and

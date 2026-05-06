@@ -17,7 +17,7 @@ const filteredTeachers = data2.filter((teacher) =>
 
    return (
      <div className="bg-gray-100 min-h-screen">
-       <header className="w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
+       <header className="sticky top-0 w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
          <a href="/" className="text-xl font-bold text-gray-900">
            School System
          </a>
@@ -53,7 +53,7 @@ const filteredTeachers = data2.filter((teacher) =>
            {filteredStudents.map((student) => (
              <div
                key={student.id}
-               className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
+               className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition"
              >
                <div className="flex items-center gap-4 mb-3">
                  <img
