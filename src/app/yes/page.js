@@ -1,144 +1,182 @@
- "use client";
- 
- import { useState } from "react";
- import data from "../../utils/student.json";
- import data2 from "../../utils/teacher.json"
- 
- export default function Header() {
-   const [search, setSearch] = useState("");
- 
-   const filteredStudents = data.filter((student) =>
-  student.firstname.toLowerCase().includes(search.toLowerCase())
-);
+"use client";
 
-const filteredTeachers = data2.filter((teacher) =>
-  teacher.name.toLowerCase().includes(search.toLowerCase())
-);
+import { useState } from "react";
+import data from "../../utils/student.json";
+import data2 from "../../utils/teacher.json";
 
-   return (
-     <div className="bg-gray-100 min-h-screen">
-       <header className="sticky top-0 w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
-         <a href="/" className="text-xl font-bold text-gray-900">
-           School System
-         </a>
- 
-         <input
-           type="text"
-           className="border border-gray-300 bg-white rounded-xl px-3 py-1 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
-           placeholder="Search..."
-           value={search}
-           onChange={(e) => setSearch(e.target.value)}
-         />
- 
-         <nav className="flex gap-6">
-           <a href="/student"  className="text-gray-500 hover:text-gray-900 transition">
-             Students
-           </a>
-           <a href="/teacher" className="text-gray-500 hover:text-gray-900 transition">
-             Teachers
-           </a>
-           <a href="/yes" className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">
-             Students v2
-           </a>
-         </nav>
-       </header>
- 
-       <div className="grid gap-6 px-6 mb-20">
-         {filteredStudents.length === 0 && filteredTeachers.length === 0 ? (
-           <div className="text-center text-gray-500 mt-6 col-span-full">
-             No data
-           </div>
-         ) : (
-          <div className="grid gap-6 px-6">
-           {filteredStudents.map((student) => (
-             <div
-               key={student.id}
-               className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition"
-             >
-               <div className="flex items-center gap-4 mb-3">
-                 <img
-                   src={student.image}
-                   alt=""
-                   className="w-14 h-14 rounded-full object-cover border-2 border-gray-300"
-                 />
-                 <div>
-                   <h2 className="text-lg font-semibold text-gray-900">
-                     {student.firstname}
-                   </h2>
-                   <p className="text-gray-500 text-sm">
-                     {student.firstname}@gmail.com
-                   </p>
-                 </div>
-               </div>
- 
-               <div className="text-gray-600 text-sm mb-3">
-                 Height: {student.height} cm
-                 <div className="flex gap-2 items-center">
-                   Country:
-                   <img
-                     src={student.country}
-                     className="w-5 h-4 object-cover rounded-sm border border-gray-300"
-                   />
-                 </div>
-               </div>
- 
-               <div>
-                 <p className="text-sm mb-2 font-medium text-gray-800">
-                   Items:
-                 </p>
-                 <div className="flex flex-col gap-2">
-                   {student.items.map((item) => (
-                     <div
-                       key={item.id}
-                       className="flex items-center gap-3 bg-gray-50 p-2 rounded-lg hover:bg-gray-100 transition border border-gray-100"
-                     >
-                       <img
-                         src={item.image}
-                         alt={item.name}
-                         className="w-10 h-10 rounded-md object-scale-down bg-white"
-                         
-                       />
-                       <span className="text-sm text-gray-800">
-                         {item.name}
-                       </span>
-                     </div>
-                   ))}
-                 </div>
-               </div>
-             </div>
-           ))}
-           {filteredTeachers.map((teacher) => (
-        <div
-          key={`t-${teacher.id}`}
-          className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition"
-        >
-          <div className="flex items-center gap-4 mb-3">
-            <img
-              src={teacher.image}
-              className="w-14 h-14 rounded-full object-cover border-2 border-gray-300"
+export default function Header() {
+  const [search, setSearch] = useState("");
+
+  const filteredStudents = data.filter((student) =>
+    student.firstname.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const filteredTeachers = data2.filter((teacher) =>
+    teacher.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Header */}
+      <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 gap-4">
+          
+          <a
+            href="/"
+            className="text-xl font-extrabold tracking-tight text-blue-600 transition hover:text-blue-700 sm:text-2xl"
+          >
+            School System
+          </a>
+
+          <div className="flex-1 flex justify-center">
+            <input
+              type="text"
+              className="w-full max-w-xs sm:max-w-sm border border-gray-300 bg-white rounded-xl px-4 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Search students or teachers..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <div>
-              <h2 className="text-lg font-semibold text-gray-900">
-                {teacher.lastname}. {teacher.name}
-              </h2>
-              <p className="text-gray-500 text-sm">
-                {teacher.name}@nhs.edu.mn
-              </p>
-              
-            </div>
           </div>
-          <div className="text-gray-500 flex gap-2 items-center">
-                   Country:
-                   <img
-                     src={teacher.country}
-                     className="w-5 h-4 object-cover rounded-sm border border-gray-300"
-                   />
-                 </div>
+
+          <a
+            href="/about"
+            className="rounded-xl bg-gray-900 px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-md transition hover:bg-black"
+          >
+            Nyamragchaa
+          </a>
         </div>
-           ))}
-           </div>
-         )}
-       </div>
-     </div>
-   );
- }
+      </header>
+
+      {/* Content */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          
+          {filteredStudents.length === 0 &&
+          filteredTeachers.length === 0 ? (
+            <div className="col-span-full text-center text-gray-500 mt-10">
+              No data found
+            </div>
+          ) : (
+            <>
+              {/* STUDENTS */}
+              {filteredStudents.map((student) => (
+                <div
+                  key={student.id}
+                  className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-xl"
+                >
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={student.image}
+                      className="h-14 w-14 rounded-full object-cover border"
+                    />
+                    <div>
+                      <h2 className="text-lg font-bold text-gray-900">
+                        {student.firstname}
+                      </h2>
+                      <p className="text-xs text-gray-500">
+                        {student.firstname}@gmail.com
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 text-sm text-gray-600 space-y-1">
+                    <p>Height: {student.height} cm</p>
+                    <div className="flex items-center gap-2">
+                      <span>Country:</span>
+                      <img
+                        src={student.country}
+                        className="h-4 w-5 rounded-sm border object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* ITEMS */}
+                  <div className="mt-4">
+                    <p className="text-sm font-semibold text-gray-800 mb-2">
+                      Items
+                    </p>
+
+                    <div className="space-y-2">
+                      {student.items.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-2"
+                        >
+                          <img
+                            src={item.image}
+                            className="h-10 w-10 rounded-md object-contain bg-white"
+                          />
+                          <span className="text-sm text-gray-700">
+                            {item.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* TEACHERS (UPDATED SAME ITEMS STYLE) */}
+              {filteredTeachers.map((teacher) => (
+                <div
+                  key={`t-${teacher.id}`}
+                  className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-xl"
+                >
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={teacher.image}
+                      className="h-14 w-14 rounded-full object-cover border"
+                    />
+                    <div>
+                      <h2 className="text-lg font-bold text-gray-900">
+                        {teacher.lastname}. {teacher.name}
+                      </h2>
+                      <p className="text-xs text-gray-500">
+                        {teacher.name}@nhs.edu.mn
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <span className="mt-4 text-gray-600 text-sm">Subject: {teacher.subject}</span>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <span>Country:</span>
+                    <img
+                      src={teacher.country}
+                      className="h-4 w-5 rounded-sm border object-cover"
+                    />
+                  </div>
+                  </div>
+                 
+
+                  {/* SAME ITEMS SECTION */}
+                  <div className="mt-4">
+                    <p className="text-sm font-semibold text-gray-800 mb-2">
+                      Items
+                    </p>
+
+                    <div className="space-y-2">
+                      {teacher.items?.map((item) => (
+                        <div
+                          key={item.id}
+                          className="flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-2"
+                        >
+                          <img
+                            src={item.image}
+                            className="h-10 w-10 rounded-md object-contain bg-white"
+                          />
+                          <span className="text-sm text-gray-700">
+                            {item.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

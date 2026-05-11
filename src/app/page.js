@@ -1,90 +1,81 @@
 "use client";
 
-import { useState } from "react";
-import data from "../utils/student.json";
-
 export default function Header() {
-  const [search, setSearch] = useState("");
-
-  const filteredData = data.filter((student) =>
-    student.firstname.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <header className="sticky top-0 w-full h-20 bg-white text-gray-900 px-6 py-4 flex justify-between items-center mb-6 border-b border-gray-200 shadow-sm">
-        <a href="/" className="text-xl font-bold text-blue-600 border-b-2 border-blue-600">
-          School System
-        </a>
-        <nav className="flex gap-6">
-          <a href="/student" className="text-gray-500 hover:text-gray-900 transition">
-            Students
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
+          {/* Logo */}
+          <a
+            href="/"
+            className="text-xl sm:text-2xl font-extrabold tracking-tight text-blue-600 transition hover:text-blue-700"
+          >
+            School System
           </a>
-          <a href="/teacher" className="text-gray-500 hover:text-gray-900 transition">
-            Teachers
+
+          {/* User */}
+          <a
+            href="/about"
+            className="rounded-xl bg-gray-900 px-4 sm:px-5 py-2 text-xs sm:text-sm font-semibold text-white shadow-md transition hover:bg-black"
+          >
+            Nyamragchaa
           </a>
-          <a href="/yes" className="text-gray-500 hover:text-gray-900 transition">
-            Students v2
-          </a>
-        </nav>
-      </header>
-      <div className="flex gap-6 px-12 text-blac justify-center items-center text-black flex-row">
-        <div className="h-125 w-100 flex flex-col items-center gap-6">
-          <div className=" bg-white w-100 p-2 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition flex flex-row">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXDBHX61LFhknME5hWXWNdDWYVI3cwH5m-iw&s" className="rounded-full h-35 w-35"/>
-            <div className="w-full h-full flex justify-center flex-col ml-4">
-              <h1 className="font-bold text-2xl">
-                Nyamragchaa
-              </h1>
-              <h2>
-                Birthday: 2009/09/20
-              </h2>
-              <h2>
-                Gender: Male
-              </h2>
-            </div>
-          </div>
-          <div className="flex justify-end w-full">
-            <div className="flex flex-col gap-4 w-72">
-              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-lg transition flex items-center gap-3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/500px-ChatGPT-Logo.svg.png" className="rounded-full h-16 w-16 object-cover" />
-                <div className="flex flex-col">
-                  <h1 className="font-bold text-lg">ChatGPT</h1>
-                  <h2 className="text-sm text-gray-500">Used for coloring and problem fixing</h2>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-lg transition flex items-center gap-3">
-                <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/nextjs-icon.png" className="rounded-full h-16 w-16 object-cover" />
-                <div className="flex flex-col">
-                  <h1 className="font-bold text-lg">Next.js</h1>
-                  <h2 className="text-sm text-gray-500">Used for framework</h2>
-                </div>
-              </div>
-              <div className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm hover:shadow-lg transition flex items-center gap-3">
-                    <img src="https://img.icons8.com/ios_filled/1200/vercel.jpg" className="rounded-full h-16 w-16 object-cover" />
-                    <div className="flex flex-col">
-                      <h1 className="font-bold text-lg">Vercel</h1>
-                      <h2 className="text-sm text-gray-500">Used for launching the website</h2>
-                    </div>
-              </div>
-            </div>
-          </div>
         </div>
-      <div className="h-125 w-100 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition transition">
-        <h1 className="font-bold text-2xl">About this Project:</h1>
-        <p className="text-sm leading-6">
-          Hello, my name is Nyamragchaa. I compiled a list of my classmates’ and
-          teachers’ names along with items that represent them or that they
-          commonly have on their person.
-        </p>
-        <p className="text-sm leading-6">
-          I used Next.js with Tailwind CSS and deployed the project on Vercel.
-          The information is stored using JSON files. Each profile picture and
-          item was personally chosen based on interests, memories, and
-          personality.
-        </p>
-      </div>
-      </div>
+      </header>
+
+      {/* Hero */}
+      <main className="flex flex-col items-center justify-center px-4 sm:px-6 py-16 sm:py-24 text-center">
+        <h1 className="max-w-4xl text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900">
+          Nest IT School
+          <span className="block p-1 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+            Management System
+          </span>
+        </h1>
+
+        {/* Cards */}
+        <div className="mt-10 sm:mt-12 grid w-full max-w-5xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          
+          <a
+            href="/about"
+            className="group rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-blue-300 hover:shadow-xl"
+          >
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 transition group-hover:text-blue-600">
+              About
+            </h2>
+
+            <p className="mt-3 text-sm leading-6 text-gray-600">
+              Learn more about me and what I used.
+            </p>
+          </a>
+
+          <a
+            href="/yes"
+            className="group rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-blue-300 hover:shadow-xl"
+          >
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 transition group-hover:text-blue-600">
+              Data
+            </h2>
+
+            <p className="mt-3 text-sm leading-6 text-gray-600">
+              View all students/teachers items and information.
+            </p>
+          </a>
+
+          <a
+            href="/fdsafdasgdas"
+            className="group rounded-3xl border border-gray-200 bg-white p-6 sm:p-8 shadow-sm transition hover:-translate-y-1 sm:hover:-translate-y-2 hover:border-red-300 hover:shadow-xl"
+          >
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 transition group-hover:text-red-500">
+              Error
+            </h2>
+
+            <p className="mt-3 text-sm leading-6 text-gray-600">
+              Visit an Error page.
+            </p>
+          </a>
+        </div>
+      </main>
     </div>
   );
 }
